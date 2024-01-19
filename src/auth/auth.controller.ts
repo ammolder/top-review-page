@@ -8,5 +8,5 @@ export class AuthController {
 
   @HttpCode(200)
   @Post('login')
-  async login() {}
+  async login(@Body() dto: AuthDto) {}
 }
