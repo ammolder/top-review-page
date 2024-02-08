@@ -45,4 +45,11 @@ export class AuthService {
 			access_token: await this.jwtService.signAsync(payload)
 		};
 	}
+
+	async deleteUser(email: string){
+		const payload = { email }
+		return {
+			access_token: await this.jwtService.signAsync(payload)
+		};
+	}
 }

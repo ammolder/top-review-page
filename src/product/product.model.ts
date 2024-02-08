@@ -1,7 +1,7 @@
 import { prop } from '@typegoose/typegoose';
 import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
 
-class PriductCharacteristic {
+class ProductCharacteristic {
   @prop()
   name: string
   
@@ -21,13 +21,10 @@ export class ProductModel extends TimeStamps {
   price: number;
   
   @prop()
-  oldPrice: number;
+  oldPrice?: number;
   
   @prop()
-  credit: number;
-  
-  @prop()
-  calculateRating: number;
+  credit: number; 
   
   @prop()
   description: string;
@@ -39,11 +36,11 @@ export class ProductModel extends TimeStamps {
   disAdvantages: string;
   
   @prop({ type: () => [String]}) //Щоб позначити Mongoose який тим, просто викликаєму функцію, яка повертає цей тип
-  catigories: string[];
+  categories: string[];
 
   @prop({ type: () => [String]})
-  tags: string;
+  tags: string[];
 
-  @prop({ type: () => [PriductCharacteristic], _id: false})
-  characteristics: PriductCharacteristic[]
+  @prop({ type: () => [ProductCharacteristic], _id: false})
+  characteristics: ProductCharacteristic[]
 }
