@@ -1,8 +1,28 @@
-FROM node:21-alpine3.18
-WORKDIR /opt/app 
-ADD package.json package.json
+#FROM node:21-alpine3.18
+#WORKDIR /opt/app 
+#ADD package.json package.json
+#RUN npm install
+#ADD . .
+#RUN npm run build
+#RUN npm prune --production
+#CMD ["node", "./dist/main.js"]
+# Base image
+FROM node:21
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
+
+# Install app dependencies
 RUN npm install
-ADD . .
+
+# Bundle app source
+COPY . .
+
+# Creates a "dist" folder with the production build
 RUN npm run build
-RUN npm prune --production
-CMD ["node", "./dist/main.js"]
+
+# Start the server using the production build
+CMD [ "node", "dist/main.js" ]
