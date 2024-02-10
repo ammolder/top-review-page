@@ -9,6 +9,5 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Publish to registry
-        run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-       # run: cat ~/my_password.txt | docker login --username foo --password-stdin
+        run: echo AndrewMiller21 | docker login -u ammolder --password-stdin
 
