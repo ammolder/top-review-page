@@ -3,8 +3,7 @@ import { TypegooseModuleOptions } from 'nestjs-typegoose';
 
 export const getMongoConfig = async (ConfigService: ConfigService): Promise<TypegooseModuleOptions> => {
 	return {
-		uri: getMongoString(ConfigService),
-		...getMongoOptions()
+		uri: getMongoString(ConfigService)
 	}
 }
 
