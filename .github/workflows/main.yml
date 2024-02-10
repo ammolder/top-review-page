@@ -9,5 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - name: Publish to registry
-        run: echo AndrewMiller21 | docker login -u ammolder --password-stdin
+        run: echo AndrewMiller21 | docker login -u ammoldervn@gmail.com --password-stdin
+        #fer
 
