@@ -9,11 +9,11 @@ export const getMongoConfig = async (ConfigService: ConfigService): Promise<Type
 
 const getMongoString = (ConfigService: ConfigService) =>
 	'mongodb+srv://' +
-	ConfigService.get('MONGO_LOGIN') +
+	ConfigService.getOrThrow('MONGO_LOGIN') +
 	':' +
-	ConfigService.get('MONGO_PASSWORD') +
+	ConfigService.getOrThrow('MONGO_PASSWORD') +
 	'@' +
-	ConfigService.get('MONGO_ADDRESS') +
+	ConfigService.getOrThrow('MONGO_ADDRESS') +
 	'/'
 
 	// ConfigService.get('MONGO_PORT') +
